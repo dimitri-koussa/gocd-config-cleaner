@@ -8,16 +8,15 @@ import java.util.Map;
 import java.util.Random;
 
 public class GocdConfigCleaner {
-    public static final String SERVER_ID = "09e04df9-abf9-4c7a-bffd-f3d5782629cb";
 
     private RandomWords randomWords;
     private Document document;
     private Map<String, String> agentResourceMapping = new HashMap<String, String>();
     private PipelineStageJobConfig pipelineStageJobConfig = new PipelineStageJobConfig();
 
-    public Document clean() throws Exception {
+    public Document clean(String gocdConfigFile, String serverId) throws Exception {
         Builder parser = new Builder();
-        document = parser.build(new File("src/main/resources/gocd-config.xml"));
+        document = parser.build(new File(gocdConfigFile));
 
         scanAndReplaceTemplates();
         scanPipelineStageAndJobNames();
@@ -56,7 +55,7 @@ public class GocdConfigCleaner {
         clearAttributes("//cruise/templates/pipeline/stage/jobs/job/tasks/fetchartifact/@srcdir");
         clearAttributes("//cruise/templates/pipeline/stage/jobs/job/tasks/fetchartifact/@dest");
 
-        setServerId(SERVER_ID);
+        setServerId(serverId);
 
         return document;
     }
