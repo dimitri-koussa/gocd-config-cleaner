@@ -13,7 +13,7 @@ it worked with my config file and using version 15.2 of the go server.
 
 To run:
 
-1. Download [gocd-cfg-cleanser-1.0.jar](releases/gocd-cfg-cleanser-1.0.jar)
+1. Download [gocd-cfg-cleanser-1.0.jar](https://github.com/dimitri-koussa/gocd-config-cleaner/releases/download/v1.0/gocd-cfg-cleanser-1.0.jar)
 2. Run: ``java -jar gocd-cfg-cleanser-1.0.jar a-gocd-cfg-file.xml``
 3. The file will be written to: ``a-gocd-cfg-file.xml``
 
